@@ -1,0 +1,17 @@
+/build/
+
+# Eclipse
+.settings/
+.metadata/
+
+# Tomcat
+apache-tomcat-8.5.99/
+
+# Build files
+bin/
+target/
+*.class
+*.log
+
+# Local configuration
+local.properties

@@ -1,0 +1,106 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<article class="job-card">
+
+    <div class="job-card-top">
+
+        <div class="company-logo">
+
+            <span class="company-initial" aria-hidden="true">
+                <%= escapeHtml(job.getName() == null || job.getName().isEmpty()
+                    ? "J" : job.getName().substring(0, 1)) %>
+            </span>
+
+            <%
+                String logoFile = safeImageName(job.getImage());
+
+                if (!logoFile.isEmpty()) {
+            %>
+
+                <img src="images/<%= logoFile %>"
+                     alt="<%= escapeHtml(job.getName()) %> 로고"
+                     loading="lazy"
+                     onerror="this.style.display='none'">
+
+            <% } %>
+
+        </div>
+
+        <span class="status-pill">
+            <span></span> 채용 정보
+        </span>
+
+    </div>
+
+    <p class="company-name">
+        <%= escapeHtml(job.getName()) %>
+    </p>
+
+    <h3>
+        <%= job.getField() == null || job.getField().trim().isEmpty()
+            ? "모집 분야 미정" : escapeHtml(job.getField()) %>
+    </h3>
+
+    <div class="job-meta">
+
+        <span>
+            <span class="meta-icon" aria-hidden="true">◷</span>
+            <%= escapeHtml(job.getPeriod()) %>
+        </span>
+
+        <span>
+            <span class="meta-icon" aria-hidden="true">♙</span>
+            채용 인원 <%= escapeHtml(job.getPersonnel()) %>
+        </span>
+
+    </div>
+
+    <details class="job-details">
+
+        <summary>
+            공고 자세히 보기
+            <span aria-hidden="true">↗</span>
+        </summary>
+
+        <div class="job-details-content">
+
+            <dl>
+                <div>
+                    <dt>회사명</dt>
+                    <dd><%= escapeHtml(job.getName()) %></dd>
+                </div>
+
+                <div>
+                    <dt>모집 분야</dt>
+                    <dd><%= escapeHtml(job.getField()) %></dd>
+                </div>
+
+                <div>
+                    <dt>채용 기간</dt>
+                    <dd><%= escapeHtml(job.getPeriod()) %></dd>
+                </div>
+
+                <div>
+                    <dt>채용 인원</dt>
+                    <dd><%= escapeHtml(job.getPersonnel()) %></dd>
+                </div>
+            </dl>
+
+            <form action="employmentDelete.jsp"
+                  method="post"
+                  onsubmit="return confirm('이 채용 공고를 정말 삭제할까요?');">
+
+                <input type="hidden"
+                       name="num"
+                       value="<%= job.getNum() %>">
+
+                <button class="text-danger-button" type="submit">
+                    이 공고 삭제하기
+                </button>
+
+            </form>
+
+        </div>
+
+    </details>
+
+</article>

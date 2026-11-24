@@ -1,0 +1,20 @@
+<%!
+
+private String escapeHtml(String value) {
+    if (value == null) return "";
+
+    return value.replace("&", "&amp;")
+                .replace("<", "&lt;")
+                .replace(">", "&gt;")
+                .replace("\"", "&quot;")
+                .replace("'", "&#39;");
+}
+
+private String safeImageName(String value) {
+    if (value == null) return "";
+
+    String name = value.trim();
+    return name.matches("(?i)[a-z0-9_-]+\\.(png|jpg|jpeg|webp|gif)") ? name : "";
+}
+%>
+

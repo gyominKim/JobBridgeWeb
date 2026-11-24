@@ -1,0 +1,49 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
+<footer class="site-footer">
+
+    <div class="page-shell footer-content">
+
+        <div>
+
+            <a class="footer-brand" href="employmentMain.jsp">
+                Job<span>Bridge</span>
+            </a>
+
+            <p>
+                더 나은 내일을 위한 커리어 연결 플랫폼
+            </p>
+
+        </div>
+
+        <div class="footer-links">
+
+            <a href="employmentMain.jsp">
+                홈
+            </a>
+
+            <a href="employmentSearch.jsp">
+                채용 공고
+            </a>
+
+            <a href="employmentRegister.jsp">
+                공고 등록
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="page-shell footer-bottom">
+
+        <span>
+            &copy; JobBridge. Portfolio project.
+        </span>
+
+        <span>
+            Made with JSP &middot; Java &middot; MySQL
+        </span>
+
+    </div>
+
+</footer>
